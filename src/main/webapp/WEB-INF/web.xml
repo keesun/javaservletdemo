@@ -1,17 +1,31 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  
-  <servlet>
-    <servlet-name>hello</servlet-name>
-    <servlet-class>me.whiteship.HelloServlet</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>hello</servlet-name>
-    <url-pattern>/hello</url-pattern>
-  </servlet-mapping>
+    <display-name>Archetype Created Web Application</display-name>
+
+    <filter>
+        <filter-name>myFilter</filter-name>
+        <filter-class>me.whiteship.MyFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>myFilter</filter-name>
+        <servlet-name>hello</servlet-name>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>me.whiteship.MyListener</listener-class>
+    </listener>
+    
+    <servlet>
+        <servlet-name>hello</servlet-name>
+        <servlet-class>me.whiteship.HelloServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>hello</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
 </web-app>
