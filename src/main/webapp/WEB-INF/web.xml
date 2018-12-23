@@ -3,29 +3,24 @@
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-    <display-name>Archetype Created Web Application</display-name>
+    <display-name>Web Application</display-name>
 
-    <filter>
-        <filter-name>myFilter</filter-name>
-        <filter-class>me.whiteship.MyFilter</filter-class>
-    </filter>
-
-    <filter-mapping>
-        <filter-name>myFilter</filter-name>
-        <servlet-name>hello</servlet-name>
-    </filter-mapping>
-
-    <listener>
-        <listener-class>me.whiteship.MyListener</listener-class>
-    </listener>
-    
     <servlet>
-        <servlet-name>hello</servlet-name>
-        <servlet-class>me.whiteship.HelloServlet</servlet-class>
+        <servlet-name>app</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextClass</param-name>
+            <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+        </init-param>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>me.whiteship.WebConfig</param-value>
+        </init-param>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>hello</servlet-name>
-        <url-pattern>/hello</url-pattern>
+        <servlet-name>app</servlet-name>
+        <url-pattern>/app/*</url-pattern>
     </servlet-mapping>
+
 </web-app>
